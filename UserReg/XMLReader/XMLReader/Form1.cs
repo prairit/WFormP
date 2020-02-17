@@ -29,8 +29,9 @@ namespace XMLReader
 
         private void loadButton_Click(object sender, EventArgs e)
         {
-            readData();
-            bindGrid();
+            //readData();
+            //bindGrid();
+            readLINQ();
         }
         void readData()
         {
@@ -63,7 +64,15 @@ namespace XMLReader
         {
             dataGridView1.DataSource = userList;
         }
+
+        void readLINQ()
+        {
+            DataSet ds = new DataSet();
+            ds.ReadXml("D:/Projects/WFormCP/WFormProjects/WFormP/UserReg/XMLReader/XMLReader/userFile.xml");
+            dataGridView1.DataSource = ds;
+        }
     }
+
 
     class User
     {
