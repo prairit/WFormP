@@ -138,6 +138,7 @@ namespace WindowsFormsApplication1
             newUser.EmailID = emailBox.Text;
             newUser.Country = countryBox.Text;
             newUser.State = stateBox.Text;
+            MessageBox.Show(numberBox.Text);
             newUser.phoneNumber = long.Parse(numberBox.Text);
             newUser.Gender = getRadioValue();
             userList.Add(newUser);
