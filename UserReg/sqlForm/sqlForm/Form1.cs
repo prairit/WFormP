@@ -98,7 +98,8 @@ namespace sqlForm
         /// <param name="e"></param>
         private void deleteButton_Click(object sender, EventArgs e)
         {
-            std.delete(int.Parse(idBox.Text));
+            readData();
+            std.delete();
             clearEntries();
         }
         /// <summary>
@@ -160,17 +161,17 @@ namespace sqlForm
 
 
         public DataTable get()
-        {
+        {/*
             string connString = @"Server=PRAIRIT-PC\SQLEXPRESS;Database=TestDB;User Id=sa;Password=mindfire@1";
             SqlConnection conn = new SqlConnection(connString);
 
-            conn.Open();
+            conn.Open();*/
             /*
             SqlDataAdapter adapter = new SqlDataAdapter("SELECT * FROM Student", conn);
             DataTable res = new DataTable();
                 adapter.Fill(res);*/
             //DataTable res = helper.SqlDataAdapter();
-            SqlCommand comm = new SqlCommand();
+            /*SqlCommand comm = new SqlCommand();
             comm.Connection = conn;
 
             comm.CommandText = "DisplayRows";
@@ -178,7 +179,11 @@ namespace sqlForm
 
             SqlDataAdapter adapter = new SqlDataAdapter(comm);
             DataTable res = new DataTable();
-            adapter.Fill(res);
+            adapter.Fill(res);*/
+
+            helper.CreateConnection();
+            DataTable res= helper.SqlDataAdapter();
+            helper.CloseConnection();
 
             return res;
         }
@@ -188,6 +193,7 @@ namespace sqlForm
         /// </summary>
         public void add()
         {
+            /*
             //string connString = "Data Source=SQLEXPRESS;Initial Catalog=TestDB;User ID =sa; Password =mindfire@1";
             string connString = @"Server=PRAIRIT-PC\SQLEXPRESS;Database=TestDB;User Id=sa;Password=mindfire@1";
             SqlConnection conn = new SqlConnection(connString);
@@ -203,7 +209,7 @@ namespace sqlForm
             PmtrId.SqlDbType = System.Data.SqlDbType.Int;
             PmtrId.Direction = ParameterDirection.Input;
             PmtrId.Value = this.StudentID;
-            comm.Parameters.Add(PmtrId);*/
+            comm.Parameters.Add(PmtrId);
 
             SqlParameter PmtrfName = new SqlParameter();
             PmtrfName.ParameterName = "@FirstName";
@@ -252,7 +258,7 @@ namespace sqlForm
             Pmtrcountry.SqlDbType = SqlDbType.NVarChar;
             Pmtrcountry.Direction = ParameterDirection.Input;
             Pmtrcountry.Value = this.Country;
-            comm.Parameters.Add(Pmtrcountry);
+            comm.Parameters.Add(Pmtrcountry);*/
 
 
             //string commandText = $"INSERT INTO Student Values (@id,@fn,@ln,@pn,@em,@gn,@st,@cn);";
@@ -260,11 +266,18 @@ namespace sqlForm
             //comm.CommandText = commandText;
             //comm.ExecuteNonQuery();
 
+            /*
             comm.CommandType = CommandType.StoredProcedure;
             comm.CommandText = "ScalarInputRow";
             Int32 row=Convert.ToInt32(comm.ExecuteScalar());
             MessageBox.Show(row.ToString());
-            conn.Close();
+            conn.Close();*/
+
+            helper.CreateConnection();
+            SqlCommand command = helper.InsertParameter(this);
+            int result=helper.ExecuteScalar(command,"ScalarInsertRow");
+            MessageBox.Show(result.ToString());
+            helper.CloseConnection();
 
             //helper.ExecuteNonQuery(commandText);
 
@@ -278,8 +291,8 @@ namespace sqlForm
         /// 
         /// </summary>
         /// <param name="id"></param>
-        public void delete(int id)
-        {
+        public void delete()
+        {/*
             string connString = @"Server=PRAIRIT-PC\SQLEXPRESS;Database=TestDB;User Id=sa;Password=mindfire@1";
 
             SqlConnection conn = new SqlConnection(connString);
@@ -301,29 +314,32 @@ namespace sqlForm
             comm.ExecuteNonQuery();
             conn.Close();
             MessageBox.Show("completed");
-            //string commandText = $"DELETE FROM Student WHERE StudentID={id};";
+            //string commandText = $"DELETE FROM Student WHERE StudentID={id};";*/
 
             //MessageBox.Show(commandText);
             /*comm.CommandText = commandText;
             int n =comm.ExecuteNonQuery();
             MessageBox.Show("Number of rows deleted:"+n);
             conn.Close();*/
-
+            MessageBox.Show(this.StudentID.ToString());
+            helper.CreateConnection();
+            helper.ExecuteNonQuery(helper.DeleteParameter(this),"DeleteRow");
+            helper.CloseConnection();
 
             //helper.ExecuteNonQuery(commandText);
         }
         
         public void update()
-        {
+        {/*
             string connString = @"Server=PRAIRIT-PC\SQLEXPRESS;Database=TestDB;User Id=sa;Password=mindfire@1";
             SqlConnection conn = new SqlConnection(connString);
 
             conn.Open();
 
             SqlCommand comm = new SqlCommand();
-            comm.Connection = conn;
+            comm.Connection = conn;*/
 
-            SqlParameter PmtrId = new SqlParameter();
+            /*SqlParameter PmtrId = new SqlParameter();
             PmtrId.ParameterName = "@StudentID";
             PmtrId.SqlDbType = System.Data.SqlDbType.Int;
             PmtrId.Direction = ParameterDirection.Input;
@@ -377,17 +393,43 @@ namespace sqlForm
             Pmtrcountry.SqlDbType = SqlDbType.NVarChar;
             Pmtrcountry.Direction = ParameterDirection.Input;
             Pmtrcountry.Value = this.Country;
-            comm.Parameters.Add(Pmtrcountry);
+            comm.Parameters.Add(Pmtrcountry);*/
+
+            /*
+                    addParameter(comm,"@StudentID",SqlDbType.Int,ParameterDirection.Input,this.StudentID);
+                    addParameter(comm, "@FirstName", SqlDbType.NVarChar, ParameterDirection.Input, this.firstName);
+                    addParameter(comm, "@LastName", SqlDbType.NVarChar, ParameterDirection.Input, this.lastName);
+                    addParameter(comm, "@PhoneNumber", SqlDbType.NVarChar, ParameterDirection.Input, this.phoneNumber);
+                    addParameter(comm, "@EmailID", SqlDbType.NVarChar, ParameterDirection.Input, this.emailID);
+                    addParameter(comm, "@Gender", SqlDbType.NVarChar, ParameterDirection.Input, this.Gender);
+                    addParameter(comm, "@State", SqlDbType.NVarChar, ParameterDirection.Input, this.State);
+                    addParameter(comm, "@Country", SqlDbType.NVarChar, ParameterDirection.Input, this.Country);*/
 
             //string commandText = $"UPDATE Student SET FirstName=@fn,LastName=@ln,PhoneNumber=@pn,EmailID=@em,Gender=@gn,State=@st,Country=@cn WHERE StudentID=@id;";
             //MessageBox.Show(commandText);
             //comm.CommandText = commandText;
             //comm.ExecuteNonQuery();
+            /*
             comm.CommandType = CommandType.StoredProcedure;
             comm.CommandText = "UpdateRow";
             comm.ExecuteNonQuery();
 
-            conn.Close();
+            conn.Close();*/
+
+
+            helper.CreateConnection();
+            helper.ExecuteNonQuery(helper.UpdateParameter(this),"UpdateRow");
+            helper.CloseConnection();
+        }
+
+        void addParameter(SqlCommand command,string name,SqlDbType type,ParameterDirection direction,object value)
+        {
+            SqlParameter parameter = new SqlParameter();
+            parameter.ParameterName = name;
+            parameter.SqlDbType = type;
+            parameter.Direction = direction;
+            parameter.Value = value;
+            command.Parameters.Add(parameter);
         }
 
         #endregion
