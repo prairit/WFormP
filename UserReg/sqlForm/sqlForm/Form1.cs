@@ -14,7 +14,7 @@ namespace sqlForm
     /// <summary>
     /// This class defines the functionality of the form
     /// </summary>
-    public partial class Form1 : Form
+    public partial class SQLDataForm : Form
     {
         #region"Properties"
         DataTable result = new DataTable();
@@ -27,7 +27,7 @@ namespace sqlForm
         /// <summary>
         /// Constructor for initializing form conpoents
         /// </summary>
-        public Form1()
+        public SQLDataForm()
         {
             InitializeComponent();
         }
@@ -37,39 +37,39 @@ namespace sqlForm
         /// </summary>
         private void addButton_Click(object sender, EventArgs e)
         {
-            Student newStudent = new Student(); 
-            newStudent = readData();
-            newStudent.add();
-            clearEntries();
+            std = new Student();
+            std = ReadDataIntoStudent();
+            std.Add();
+            ClearEntriesInForm();
         }
 
         /// <summary>
         /// This function will update the datagrid
         /// </summary>
-        void bindGrid()
+        void BindGrid()
         {
-            result = std.get();
-            dataGridView1.DataSource = result;
+            result = std.Get();
+            dataGridViewForSQL.DataSource = result;
         }
 
         /// <summary>
         /// This function will read data from winform and store it in the object
         /// </summary>
-        Student readData()
+        Student ReadDataIntoStudent()
         {
             std = new Student();
-            std.firstName = fnameBox.Text;
-            std.lastName = lnameBox.Text;
+            std.firstName = txtBoxFirstName.Text;
+            std.lastName = txtBoxLastName.Text;
             try
             {
-                std.StudentID = int.Parse(idBox.Text);
-                std.phoneNumber = long.Parse(numberBox.Text);
+                std.StudentID = int.Parse(txtBoxID.Text);
+                std.phoneNumber = long.Parse(txtBoxPhoneNumber.Text);
             }
             catch (Exception) { }
-            std.emailID = emailBox.Text;
-            std.Gender= genderBox.Text;
-            std.State = stateBox.Text;
-            std.Country = countryBox.Text;
+            std.emailID = txtBoxEmailID.Text;
+            std.Gender= txtBoxGender.Text;
+            std.State = txtBoxState.Text;
+            std.Country = txtBoxCountry.Text;
 
             return std;
         }
@@ -79,13 +79,13 @@ namespace sqlForm
         /// </summary>
         private void Form1_Load(object sender, EventArgs e)
         {
-            createColumns();
+            CreateColumnsForDataGrid();
         }
 
         /// <summary>
         /// This function will add columns in the datagrid
         /// </summary>
-        void createColumns()
+        void CreateColumnsForDataGrid()
         {
             result.Columns.Add("StudentID");
             result.Columns.Add("First Name");
@@ -102,9 +102,9 @@ namespace sqlForm
         /// </summary>
         private void deleteButton_Click(object sender, EventArgs e)
         {
-            readData();
-            std.delete();
-            clearEntries();
+            ReadDataIntoStudent();
+            std.Delete();
+            ClearEntriesInForm();
         }
 
         /// <summary>
@@ -112,7 +112,7 @@ namespace sqlForm
         /// </summary>
         private void Loadbutton_Click(object sender, EventArgs e)
         {
-            bindGrid();
+            BindGrid();
         }
 
         /// <summary>
@@ -120,24 +120,24 @@ namespace sqlForm
         /// </summary>
         private void updateButton_Click(object sender, EventArgs e)
         {
-            readData();
-            std.update();
-            clearEntries();
+            ReadDataIntoStudent();
+            std.Update();
+            ClearEntriesInForm();
         }
 
         /// <summary>
         /// This function will reset the entries of the windows form
         /// </summary>
-        private void clearEntries()
+        private void ClearEntriesInForm()
         {
-            idBox.Clear();
-            fnameBox.Clear();
-            lnameBox.Clear();
-            numberBox.Clear();
-            emailBox.Clear();
-            genderBox.Clear();
-            countryBox.Clear();
-            stateBox.Clear();
+            txtBoxID.Clear();
+            txtBoxFirstName.Clear();
+            txtBoxLastName.Clear();
+            txtBoxPhoneNumber.Clear();
+            txtBoxEmailID.Clear();
+            txtBoxGender.Clear();
+            txtBoxCountry.Clear();
+            txtBoxState.Clear();
         }
 
         #endregion

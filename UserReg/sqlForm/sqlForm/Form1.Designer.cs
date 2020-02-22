@@ -1,6 +1,6 @@
 ﻿namespace sqlForm
 {
-    partial class Form1
+    partial class SQLDataForm
     {
         /// <summary>
         /// Required designer variable.
@@ -28,169 +28,169 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.lbl_StudentID = new System.Windows.Forms.Label();
-            this.idBox = new System.Windows.Forms.TextBox();
-            this.fnameBox = new System.Windows.Forms.TextBox();
-            this.lnameBox = new System.Windows.Forms.TextBox();
-            this.numberBox = new System.Windows.Forms.TextBox();
-            this.emailBox = new System.Windows.Forms.TextBox();
-            this.genderBox = new System.Windows.Forms.TextBox();
-            this.stateBox = new System.Windows.Forms.TextBox();
-            this.countryBox = new System.Windows.Forms.TextBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.lblFirstName = new System.Windows.Forms.Label();
+            this.lblLastName = new System.Windows.Forms.Label();
+            this.lblPhoneNumber = new System.Windows.Forms.Label();
+            this.lblEmailID = new System.Windows.Forms.Label();
+            this.lblGender = new System.Windows.Forms.Label();
+            this.lblState = new System.Windows.Forms.Label();
+            this.lblCountry = new System.Windows.Forms.Label();
+            this.lblStudentID = new System.Windows.Forms.Label();
+            this.txtBoxID = new System.Windows.Forms.TextBox();
+            this.txtBoxFirstName = new System.Windows.Forms.TextBox();
+            this.txtBoxLastName = new System.Windows.Forms.TextBox();
+            this.txtBoxPhoneNumber = new System.Windows.Forms.TextBox();
+            this.txtBoxEmailID = new System.Windows.Forms.TextBox();
+            this.txtBoxGender = new System.Windows.Forms.TextBox();
+            this.txtBoxState = new System.Windows.Forms.TextBox();
+            this.txtBoxCountry = new System.Windows.Forms.TextBox();
+            this.dataGridViewForSQL = new System.Windows.Forms.DataGridView();
             this.addButton = new System.Windows.Forms.Button();
             this.deleteButton = new System.Windows.Forms.Button();
-            this.Loadbutton = new System.Windows.Forms.Button();
+            this.loadButton = new System.Windows.Forms.Button();
             this.updateButton = new System.Windows.Forms.Button();
-            this.label9 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.lblHeading = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewForSQL)).BeginInit();
             this.SuspendLayout();
             // 
-            // label1
+            // lblFirstName
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(48, 122);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(76, 17);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "First Name";
+            this.lblFirstName.AutoSize = true;
+            this.lblFirstName.Location = new System.Drawing.Point(48, 122);
+            this.lblFirstName.Name = "lblFirstName";
+            this.lblFirstName.Size = new System.Drawing.Size(76, 17);
+            this.lblFirstName.TabIndex = 0;
+            this.lblFirstName.Text = "First Name";
             // 
-            // label2
+            // lblLastName
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(48, 182);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(76, 17);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "Last Name";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.lblLastName.AutoSize = true;
+            this.lblLastName.Location = new System.Drawing.Point(48, 182);
+            this.lblLastName.Name = "lblLastName";
+            this.lblLastName.Size = new System.Drawing.Size(76, 17);
+            this.lblLastName.TabIndex = 1;
+            this.lblLastName.Text = "Last Name";
+            this.lblLastName.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
-            // label3
+            // lblPhoneNumber
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(48, 240);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(103, 17);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "Phone Number";
+            this.lblPhoneNumber.AutoSize = true;
+            this.lblPhoneNumber.Location = new System.Drawing.Point(48, 240);
+            this.lblPhoneNumber.Name = "lblPhoneNumber";
+            this.lblPhoneNumber.Size = new System.Drawing.Size(103, 17);
+            this.lblPhoneNumber.TabIndex = 2;
+            this.lblPhoneNumber.Text = "Phone Number";
             // 
-            // label4
+            // lblEmailID
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(48, 296);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(59, 17);
-            this.label4.TabIndex = 3;
-            this.label4.Text = "Email ID";
+            this.lblEmailID.AutoSize = true;
+            this.lblEmailID.Location = new System.Drawing.Point(48, 296);
+            this.lblEmailID.Name = "lblEmailID";
+            this.lblEmailID.Size = new System.Drawing.Size(59, 17);
+            this.lblEmailID.TabIndex = 3;
+            this.lblEmailID.Text = "Email ID";
             // 
-            // label5
+            // lblGender
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(47, 352);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(56, 17);
-            this.label5.TabIndex = 4;
-            this.label5.Text = "Gender";
+            this.lblGender.AutoSize = true;
+            this.lblGender.Location = new System.Drawing.Point(47, 352);
+            this.lblGender.Name = "lblGender";
+            this.lblGender.Size = new System.Drawing.Size(56, 17);
+            this.lblGender.TabIndex = 4;
+            this.lblGender.Text = "Gender";
             // 
-            // label6
+            // lblState
             // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(48, 417);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(41, 17);
-            this.label6.TabIndex = 5;
-            this.label6.Text = "State";
+            this.lblState.AutoSize = true;
+            this.lblState.Location = new System.Drawing.Point(48, 417);
+            this.lblState.Name = "lblState";
+            this.lblState.Size = new System.Drawing.Size(41, 17);
+            this.lblState.TabIndex = 5;
+            this.lblState.Text = "State";
             // 
-            // label7
+            // lblCountry
             // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(47, 475);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(57, 17);
-            this.label7.TabIndex = 6;
-            this.label7.Text = "Country";
+            this.lblCountry.AutoSize = true;
+            this.lblCountry.Location = new System.Drawing.Point(47, 475);
+            this.lblCountry.Name = "lblCountry";
+            this.lblCountry.Size = new System.Drawing.Size(57, 17);
+            this.lblCountry.TabIndex = 6;
+            this.lblCountry.Text = "Country";
             // 
-            // lbl_StudentID
+            // lblStudentID
             // 
-            this.lbl_StudentID.AutoSize = true;
-            this.lbl_StudentID.Location = new System.Drawing.Point(51, 63);
-            this.lbl_StudentID.Name = "lbl_StudentID";
-            this.lbl_StudentID.Size = new System.Drawing.Size(74, 17);
-            this.lbl_StudentID.TabIndex = 7;
-            this.lbl_StudentID.Text = "Student ID";
+            this.lblStudentID.AutoSize = true;
+            this.lblStudentID.Location = new System.Drawing.Point(51, 63);
+            this.lblStudentID.Name = "lblStudentID";
+            this.lblStudentID.Size = new System.Drawing.Size(74, 17);
+            this.lblStudentID.TabIndex = 7;
+            this.lblStudentID.Text = "Student ID";
             // 
-            // idBox
+            // txtBoxID
             // 
-            this.idBox.Location = new System.Drawing.Point(201, 63);
-            this.idBox.Name = "idBox";
-            this.idBox.Size = new System.Drawing.Size(189, 22);
-            this.idBox.TabIndex = 8;
+            this.txtBoxID.Location = new System.Drawing.Point(201, 63);
+            this.txtBoxID.Name = "txtBoxID";
+            this.txtBoxID.Size = new System.Drawing.Size(189, 22);
+            this.txtBoxID.TabIndex = 8;
             // 
-            // fnameBox
+            // txtBoxFirstName
             // 
-            this.fnameBox.Location = new System.Drawing.Point(201, 122);
-            this.fnameBox.Name = "fnameBox";
-            this.fnameBox.Size = new System.Drawing.Size(189, 22);
-            this.fnameBox.TabIndex = 9;
+            this.txtBoxFirstName.Location = new System.Drawing.Point(201, 122);
+            this.txtBoxFirstName.Name = "txtBoxFirstName";
+            this.txtBoxFirstName.Size = new System.Drawing.Size(189, 22);
+            this.txtBoxFirstName.TabIndex = 9;
             // 
-            // lnameBox
+            // txtBoxLastName
             // 
-            this.lnameBox.Location = new System.Drawing.Point(201, 182);
-            this.lnameBox.Name = "lnameBox";
-            this.lnameBox.Size = new System.Drawing.Size(189, 22);
-            this.lnameBox.TabIndex = 10;
+            this.txtBoxLastName.Location = new System.Drawing.Point(201, 182);
+            this.txtBoxLastName.Name = "txtBoxLastName";
+            this.txtBoxLastName.Size = new System.Drawing.Size(189, 22);
+            this.txtBoxLastName.TabIndex = 10;
             // 
-            // numberBox
+            // txtBoxPhoneNumber
             // 
-            this.numberBox.Location = new System.Drawing.Point(201, 240);
-            this.numberBox.Name = "numberBox";
-            this.numberBox.Size = new System.Drawing.Size(189, 22);
-            this.numberBox.TabIndex = 11;
+            this.txtBoxPhoneNumber.Location = new System.Drawing.Point(201, 240);
+            this.txtBoxPhoneNumber.Name = "txtBoxPhoneNumber";
+            this.txtBoxPhoneNumber.Size = new System.Drawing.Size(189, 22);
+            this.txtBoxPhoneNumber.TabIndex = 11;
             // 
-            // emailBox
+            // txtBoxEmailID
             // 
-            this.emailBox.Location = new System.Drawing.Point(201, 296);
-            this.emailBox.Name = "emailBox";
-            this.emailBox.Size = new System.Drawing.Size(189, 22);
-            this.emailBox.TabIndex = 12;
+            this.txtBoxEmailID.Location = new System.Drawing.Point(201, 296);
+            this.txtBoxEmailID.Name = "txtBoxEmailID";
+            this.txtBoxEmailID.Size = new System.Drawing.Size(189, 22);
+            this.txtBoxEmailID.TabIndex = 12;
             // 
-            // genderBox
+            // txtBoxGender
             // 
-            this.genderBox.Location = new System.Drawing.Point(201, 352);
-            this.genderBox.Name = "genderBox";
-            this.genderBox.Size = new System.Drawing.Size(189, 22);
-            this.genderBox.TabIndex = 13;
+            this.txtBoxGender.Location = new System.Drawing.Point(201, 352);
+            this.txtBoxGender.Name = "txtBoxGender";
+            this.txtBoxGender.Size = new System.Drawing.Size(189, 22);
+            this.txtBoxGender.TabIndex = 13;
             // 
-            // stateBox
+            // txtBoxState
             // 
-            this.stateBox.Location = new System.Drawing.Point(201, 417);
-            this.stateBox.Name = "stateBox";
-            this.stateBox.Size = new System.Drawing.Size(189, 22);
-            this.stateBox.TabIndex = 14;
+            this.txtBoxState.Location = new System.Drawing.Point(201, 417);
+            this.txtBoxState.Name = "txtBoxState";
+            this.txtBoxState.Size = new System.Drawing.Size(189, 22);
+            this.txtBoxState.TabIndex = 14;
             // 
-            // countryBox
+            // txtBoxCountry
             // 
-            this.countryBox.Location = new System.Drawing.Point(201, 475);
-            this.countryBox.Name = "countryBox";
-            this.countryBox.Size = new System.Drawing.Size(189, 22);
-            this.countryBox.TabIndex = 15;
+            this.txtBoxCountry.Location = new System.Drawing.Point(201, 475);
+            this.txtBoxCountry.Name = "txtBoxCountry";
+            this.txtBoxCountry.Size = new System.Drawing.Size(189, 22);
+            this.txtBoxCountry.TabIndex = 15;
             // 
-            // dataGridView1
+            // dataGridViewForSQL
             // 
-            this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.ScrollBar;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(463, 63);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(847, 434);
-            this.dataGridView1.TabIndex = 16;
+            this.dataGridViewForSQL.BackgroundColor = System.Drawing.SystemColors.ScrollBar;
+            this.dataGridViewForSQL.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewForSQL.Location = new System.Drawing.Point(463, 63);
+            this.dataGridViewForSQL.Name = "dataGridViewForSQL";
+            this.dataGridViewForSQL.RowTemplate.Height = 24;
+            this.dataGridViewForSQL.Size = new System.Drawing.Size(847, 434);
+            this.dataGridViewForSQL.TabIndex = 16;
             // 
             // addButton
             // 
@@ -212,15 +212,15 @@
             this.deleteButton.UseVisualStyleBackColor = true;
             this.deleteButton.Click += new System.EventHandler(this.deleteButton_Click);
             // 
-            // Loadbutton
+            // loadButton
             // 
-            this.Loadbutton.Location = new System.Drawing.Point(350, 540);
-            this.Loadbutton.Name = "Loadbutton";
-            this.Loadbutton.Size = new System.Drawing.Size(89, 35);
-            this.Loadbutton.TabIndex = 19;
-            this.Loadbutton.Text = "Load";
-            this.Loadbutton.UseVisualStyleBackColor = true;
-            this.Loadbutton.Click += new System.EventHandler(this.Loadbutton_Click);
+            this.loadButton.Location = new System.Drawing.Point(350, 540);
+            this.loadButton.Name = "loadButton";
+            this.loadButton.Size = new System.Drawing.Size(89, 35);
+            this.loadButton.TabIndex = 19;
+            this.loadButton.Text = "Load";
+            this.loadButton.UseVisualStyleBackColor = true;
+            this.loadButton.Click += new System.EventHandler(this.Loadbutton_Click);
             // 
             // updateButton
             // 
@@ -232,48 +232,48 @@
             this.updateButton.UseVisualStyleBackColor = true;
             this.updateButton.Click += new System.EventHandler(this.updateButton_Click);
             // 
-            // label9
+            // lblHeading
             // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
-            this.label9.Location = new System.Drawing.Point(457, 9);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(331, 31);
-            this.label9.TabIndex = 21;
-            this.label9.Text = "Student Registration Form";
+            this.lblHeading.AutoSize = true;
+            this.lblHeading.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
+            this.lblHeading.Location = new System.Drawing.Point(457, 9);
+            this.lblHeading.Name = "lblHeading";
+            this.lblHeading.Size = new System.Drawing.Size(331, 31);
+            this.lblHeading.TabIndex = 21;
+            this.lblHeading.Text = "Student Registration Form";
             // 
-            // Form1
+            // SQLDataForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.MenuBar;
             this.ClientSize = new System.Drawing.Size(1321, 599);
-            this.Controls.Add(this.label9);
+            this.Controls.Add(this.lblHeading);
             this.Controls.Add(this.updateButton);
-            this.Controls.Add(this.Loadbutton);
+            this.Controls.Add(this.loadButton);
             this.Controls.Add(this.deleteButton);
             this.Controls.Add(this.addButton);
-            this.Controls.Add(this.dataGridView1);
-            this.Controls.Add(this.countryBox);
-            this.Controls.Add(this.stateBox);
-            this.Controls.Add(this.genderBox);
-            this.Controls.Add(this.emailBox);
-            this.Controls.Add(this.numberBox);
-            this.Controls.Add(this.lnameBox);
-            this.Controls.Add(this.fnameBox);
-            this.Controls.Add(this.idBox);
-            this.Controls.Add(this.lbl_StudentID);
-            this.Controls.Add(this.label7);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
-            this.Name = "Form1";
+            this.Controls.Add(this.dataGridViewForSQL);
+            this.Controls.Add(this.txtBoxCountry);
+            this.Controls.Add(this.txtBoxState);
+            this.Controls.Add(this.txtBoxGender);
+            this.Controls.Add(this.txtBoxEmailID);
+            this.Controls.Add(this.txtBoxPhoneNumber);
+            this.Controls.Add(this.txtBoxLastName);
+            this.Controls.Add(this.txtBoxFirstName);
+            this.Controls.Add(this.txtBoxID);
+            this.Controls.Add(this.lblStudentID);
+            this.Controls.Add(this.lblCountry);
+            this.Controls.Add(this.lblState);
+            this.Controls.Add(this.lblGender);
+            this.Controls.Add(this.lblEmailID);
+            this.Controls.Add(this.lblPhoneNumber);
+            this.Controls.Add(this.lblLastName);
+            this.Controls.Add(this.lblFirstName);
+            this.Name = "SQLDataForm";
             this.Text = "Student Registration Form";
             this.Load += new System.EventHandler(this.Form1_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewForSQL)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -281,28 +281,28 @@
 
         #endregion
 
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label lbl_StudentID;
-        private System.Windows.Forms.TextBox idBox;
-        private System.Windows.Forms.TextBox fnameBox;
-        private System.Windows.Forms.TextBox lnameBox;
-        private System.Windows.Forms.TextBox numberBox;
-        private System.Windows.Forms.TextBox emailBox;
-        private System.Windows.Forms.TextBox genderBox;
-        private System.Windows.Forms.TextBox stateBox;
-        private System.Windows.Forms.TextBox countryBox;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.Label lblFirstName;
+        private System.Windows.Forms.Label lblLastName;
+        private System.Windows.Forms.Label lblPhoneNumber;
+        private System.Windows.Forms.Label lblEmailID;
+        private System.Windows.Forms.Label lblGender;
+        private System.Windows.Forms.Label lblState;
+        private System.Windows.Forms.Label lblCountry;
+        private System.Windows.Forms.Label lblStudentID;
+        private System.Windows.Forms.TextBox txtBoxID;
+        private System.Windows.Forms.TextBox txtBoxFirstName;
+        private System.Windows.Forms.TextBox txtBoxLastName;
+        private System.Windows.Forms.TextBox txtBoxPhoneNumber;
+        private System.Windows.Forms.TextBox txtBoxEmailID;
+        private System.Windows.Forms.TextBox txtBoxGender;
+        private System.Windows.Forms.TextBox txtBoxState;
+        private System.Windows.Forms.TextBox txtBoxCountry;
+        private System.Windows.Forms.DataGridView dataGridViewForSQL;
         private System.Windows.Forms.Button addButton;
         private System.Windows.Forms.Button deleteButton;
-        private System.Windows.Forms.Button Loadbutton;
+        private System.Windows.Forms.Button loadButton;
         private System.Windows.Forms.Button updateButton;
-        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label lblHeading;
     }
 }
 
