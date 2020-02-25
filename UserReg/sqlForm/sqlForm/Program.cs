@@ -16,7 +16,8 @@ namespace PAL
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new SQLDataForm());
+            //Application.Run(new SQLDataForm());
+            Application.Run(new EmployeeForm());
         }
     }
 }

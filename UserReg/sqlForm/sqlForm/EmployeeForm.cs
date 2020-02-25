@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using BAL;
 namespace PAL
 {
 
@@ -19,7 +19,7 @@ namespace PAL
         #region"Properties"
         DataTable result = new DataTable();
 
-        Student std = new Student();
+        Employee emp = new Employee();
         #endregion
 
         #region "Functions"
@@ -38,8 +38,8 @@ namespace PAL
         private void addButton_Click(object sender, EventArgs e)
         {
             //std = new Student();
-            std = ReadDataIntoStudent();
-            std.Add();
+            emp = ReadDataIntoEmployee();
+            emp.Add();
             ClearEntriesInForm();
         }
 
@@ -48,30 +48,30 @@ namespace PAL
         /// </summary>
         void BindGrid()
         {
-            result = std.Get();
+            result = emp.Get();
             dataGridViewForSQL.DataSource = result;
         }
 
         /// <summary>
         /// This function will read data from winform and store it in the object
         /// </summary>
-        Student ReadDataIntoStudent()
+        Employee ReadDataIntoEmployee()
         {
             //std = new Student();
-            std.firstName = txtBoxFirstName.Text;
-            std.lastName = txtBoxLastName.Text;
+            emp.firstName = txtBoxFirstName.Text;
+            emp.lastName = txtBoxLastName.Text;
             try
             {
-                std.StudentID = int.Parse(txtBoxID.Text);
-                std.phoneNumber = long.Parse(txtBoxPhoneNumber.Text);
+                emp.EmployeeID = int.Parse(txtBoxID.Text);
+                emp.phoneNumber = long.Parse(txtBoxPhoneNumber.Text);
             }
             catch (Exception) { }
-            std.emailID = txtBoxEmailID.Text;
-            std.Gender = txtBoxGender.Text;
-            std.State = txtBoxState.Text;
-            std.Country = txtBoxCountry.Text;
+            emp.emailID = txtBoxEmailID.Text;
+            emp.Gender = txtBoxGender.Text;
+            emp.State = txtBoxState.Text;
+            emp.Country = txtBoxCountry.Text;
 
-            return std;
+            return emp;
         }
 
         /// <summary>
@@ -86,15 +86,15 @@ namespace PAL
         /// </summary>
         private void deleteButton_Click(object sender, EventArgs e)
         {
-            ReadDataIntoStudent();
-            std.Delete();
+            ReadDataIntoEmployee();
+            emp.Delete();
             ClearEntriesInForm();
         }
 
         /// <summary>
         /// This function is triggered upon clicking the load button
         /// </summary>
-        private void Loadbutton_Click(object sender, EventArgs e)
+        private void loadButton_Click(object sender, EventArgs e)
         {
             BindGrid();
         }
@@ -104,8 +104,8 @@ namespace PAL
         /// </summary>
         private void updateButton_Click(object sender, EventArgs e)
         {
-            ReadDataIntoStudent();
-            std.Update();
+            ReadDataIntoEmployee();
+            emp.Update();
             ClearEntriesInForm();
         }
 
@@ -124,6 +124,11 @@ namespace PAL
             txtBoxState.Clear();
         }
 
+        private void EmployeeForm_Load(object sender, EventArgs e)
+        {
+
+        }
         #endregion
+
     }
 }

@@ -71,6 +71,7 @@
             this.updateButton.TabIndex = 42;
             this.updateButton.Text = "Update";
             this.updateButton.UseVisualStyleBackColor = true;
+            this.updateButton.Click += new System.EventHandler(this.updateButton_Click);
             // 
             // loadButton
             // 
@@ -80,6 +81,7 @@
             this.loadButton.TabIndex = 41;
             this.loadButton.Text = "Load";
             this.loadButton.UseVisualStyleBackColor = true;
+            this.loadButton.Click += new System.EventHandler(this.loadButton_Click);
             // 
             // deleteButton
             // 
@@ -89,6 +91,7 @@
             this.deleteButton.TabIndex = 40;
             this.deleteButton.Text = "Delete";
             this.deleteButton.UseVisualStyleBackColor = true;
+            this.deleteButton.Click += new System.EventHandler(this.deleteButton_Click);
             // 
             // addButton
             // 
@@ -98,6 +101,7 @@
             this.addButton.TabIndex = 39;
             this.addButton.Text = "Add";
             this.addButton.UseVisualStyleBackColor = true;
+            this.addButton.Click += new System.EventHandler(this.addButton_Click);
             // 
             // dataGridViewForSQL
             // 
@@ -267,6 +271,7 @@
             this.Controls.Add(this.lblFirstName);
             this.Name = "EmployeeForm";
             this.Text = "EmployeeForm";
+            this.Load += new System.EventHandler(this.EmployeeForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewForSQL)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
