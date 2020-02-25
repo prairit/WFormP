@@ -3,11 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows.Forms;
 using System.Data;
 using System.Data.SqlClient;
 
-namespace PAL
+namespace BAL
 {
     /// <summary>
     /// This class contains the properties of the Student 
@@ -36,33 +35,33 @@ namespace PAL
         /// </summary>
         public DataTable Get()
         {
-            DataTable res = helper.SqlDataAdapter(true,"DisplayRows");
+            DataTable res = helper.SqlDataAdapter(true, "DisplayRows");
             return res;
         }
-        
+
         /// <summary>
         /// This function will add rows in the SQL datatable
         /// </summary>
         public void Add()
         {
-            
+
             ParameterForInsert();
-            int result=helper.ExecuteScalar(true,"ScalarInsertRow");
+            int result = helper.ExecuteScalar(true, "ScalarInsertRow");
             //helper.parameters.Clear();
-                        
-            MessageBox.Show("Row inserted at index "+result.ToString());
+
+            //MessageBox.Show("Row inserted at index " + result.ToString());
         }
-        
+
         /// <summary>
         /// This function will delete the row at the desired StudentID
         /// </summary>
         public void Delete()
         {
             ParameterForDelete();
-            helper.ExecuteNonQuery(true,"DeleteRow");
+            helper.ExecuteNonQuery(true, "DeleteRow");
             //helper.parameters.Clear();
-            
-            MessageBox.Show("Row deleted successfully");
+
+            //MessageBox.Show("Row deleted successfully");
         }
 
         /// <summary>
@@ -73,9 +72,9 @@ namespace PAL
             ParameterForUpdate();
             helper.ExecuteNonQuery(true, "UpdateRow");
             //helper.parameters.Clear();
-            
-            MessageBox.Show("Row updated successfully");
-        }       
+
+            //MessageBox.Show("Row updated successfully");
+        }
 
         /// <summary>
         /// This function will add the SQLParameters required for Insert stored procedure

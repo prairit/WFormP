@@ -7,14 +7,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Data.SqlClient;
 
 namespace PAL
 {
+
     /// <summary>
     /// This class defines the functionality of the form
     /// </summary>
-    public partial class SQLDataForm : Form
+    public partial class EmployeeForm : Form
     {
         #region"Properties"
         DataTable result = new DataTable();
@@ -27,7 +27,7 @@ namespace PAL
         /// <summary>
         /// Constructor for initializing form components
         /// </summary>
-        public SQLDataForm()
+        public EmployeeForm()
         {
             InitializeComponent();
         }
@@ -67,7 +67,7 @@ namespace PAL
             }
             catch (Exception) { }
             std.emailID = txtBoxEmailID.Text;
-            std.Gender= txtBoxGender.Text;
+            std.Gender = txtBoxGender.Text;
             std.State = txtBoxState.Text;
             std.Country = txtBoxCountry.Text;
 
@@ -80,7 +80,7 @@ namespace PAL
         private void Form1_Load(object sender, EventArgs e)
         {
         }
-        
+
         /// <summary>
         /// This function  is triggered upon clicking the delete button
         /// </summary>
@@ -126,5 +126,4 @@ namespace PAL
 
         #endregion
     }
-
 }

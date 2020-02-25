@@ -3,20 +3,20 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows.Forms;
 using System.Data;
 using System.Data.SqlClient;
+using DAL;
 
-namespace PAL
+namespace BAL
 {
     /// <summary>
-    /// This class contains the properties of the Student 
+    /// This class contains the properties of the Employee
     /// </summary>
-    public class Student
+    public class Employee
     {
         #region "Properties"
 
-        public int StudentID { get; set; }
+        public int EmployeeID { get; set; }
         public string firstName { get; set; }
         public string lastName { get; set; }
         public long phoneNumber { get; set; }
@@ -36,33 +36,33 @@ namespace PAL
         /// </summary>
         public DataTable Get()
         {
-            DataTable res = helper.SqlDataAdapter(true,"DisplayRows");
+            DataTable res = helper.SqlDataAdapter(true, "EmployeeDisplayRows");
             return res;
         }
-        
+
         /// <summary>
         /// This function will add rows in the SQL datatable
         /// </summary>
         public void Add()
         {
-            
+
             ParameterForInsert();
-            int result=helper.ExecuteScalar(true,"ScalarInsertRow");
+            int result = helper.ExecuteScalar(true, "EmployeeScalarInsertRow");
             //helper.parameters.Clear();
-                        
-            MessageBox.Show("Row inserted at index "+result.ToString());
+
+            //MessageBox.Show("Row inserted at index " + result.ToString());
         }
-        
+
         /// <summary>
         /// This function will delete the row at the desired StudentID
         /// </summary>
         public void Delete()
         {
             ParameterForDelete();
-            helper.ExecuteNonQuery(true,"DeleteRow");
+            helper.ExecuteNonQuery(true, "EmployeeDeleteRow");
             //helper.parameters.Clear();
-            
-            MessageBox.Show("Row deleted successfully");
+
+            //MessageBox.Show("Row deleted successfully");
         }
 
         /// <summary>
@@ -71,11 +71,11 @@ namespace PAL
         public void Update()
         {
             ParameterForUpdate();
-            helper.ExecuteNonQuery(true, "UpdateRow");
+            helper.ExecuteNonQuery(true, "EmployeeUpdateRow");
             //helper.parameters.Clear();
-            
-            MessageBox.Show("Row updated successfully");
-        }       
+
+            //MessageBox.Show("Row updated successfully");
+        }
 
         /// <summary>
         /// This function will add the SQLParameters required for Insert stored procedure
@@ -96,7 +96,7 @@ namespace PAL
         /// </summary>
         private void ParameterForDelete()
         {
-            helper.AddParameter("@StudentID", SqlDbType.Int, ParameterDirection.Input, this.StudentID);
+            helper.AddParameter("@EmployeeID", SqlDbType.Int, ParameterDirection.Input, this.EmployeeID);
         }
 
         /// <summary>
@@ -104,7 +104,7 @@ namespace PAL
         /// </summary>
         private void ParameterForUpdate()
         {
-            helper.AddParameter("@StudentID", SqlDbType.Int, ParameterDirection.Input, this.StudentID);
+            helper.AddParameter("@EmployeeID", SqlDbType.Int, ParameterDirection.Input, this.EmployeeID);
             helper.AddParameter("@FirstName", SqlDbType.NVarChar, ParameterDirection.Input, this.firstName);
             helper.AddParameter("@LastName", SqlDbType.NVarChar, ParameterDirection.Input, this.lastName);
             helper.AddParameter("@PhoneNumber", SqlDbType.NVarChar, ParameterDirection.Input, this.phoneNumber);

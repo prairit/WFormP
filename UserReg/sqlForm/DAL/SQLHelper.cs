@@ -1,22 +1,21 @@
-﻿ using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data;
 using System.Data.SqlClient;
-using System.Windows.Forms;
 
-namespace PAL
-{ 
+namespace DAL
+{
     /// <summary>
     /// This class helps in creating and closing connections as well as execute the stored procedures
     /// </summary>
-    class SQLHelper
+    public class SQLHelper
     {
         #region "Properties"
         private string connectionString;
-        public List<SqlParameter> parameters;
+        List<SqlParameter> parameters;
         #endregion
 
         #region"Functions"
@@ -29,7 +28,7 @@ namespace PAL
             connectionString = @"Server=PRAIRIT-PC\SQLEXPRESS;Database=TestDB;User Id = sa; Password=mindfire@1";
             parameters = new List<SqlParameter>();
         }
-        
+
         /// <summary>
         /// This function will execute the Stored Procedure by using ExecuteNonQuery
         /// </summary>
@@ -50,18 +49,18 @@ namespace PAL
                 }
                 finally
                 {
-                    if(connection!=null)
+                    if (connection != null)
                     {
                         connection.Close();
                         parameters.Clear();
                     }
                 }
-                
+
             }
             catch
             {
-                MessageBox.Show("Failed to execute NonQuery");
-            }                   
+                //MessageBox.Show("Failed to execute NonQuery");
+            }
         }
 
         /// <summary>
@@ -95,7 +94,7 @@ namespace PAL
             }
             catch
             {
-                MessageBox.Show("Failed to execute Scalar");
+                //MessageBox.Show("Failed to execute Scalar");
             }
             return id;
         }
@@ -103,7 +102,7 @@ namespace PAL
         /// <summary>
         /// This function will use SQLAdapter to fill and return a datatable
         /// </summary>
-        public DataTable SqlDataAdapter(bool isProcedure,string commandString)
+        public DataTable SqlDataAdapter(bool isProcedure, string commandString)
         {
             DataTable dt = new DataTable();
             try
@@ -131,11 +130,11 @@ namespace PAL
             }
             catch
             {
-                MessageBox.Show("Failed to use SQLAdapter to fill the DataTable");
+                //MessageBox.Show("Failed to use SQLAdapter to fill the DataTable");
             }
             return dt;
         }
-                            
+
         /// <summary>
         /// This function will add the SQLParameters to the passes command object 
         /// </summary>
@@ -153,7 +152,7 @@ namespace PAL
             }
             catch
             {
-                MessageBox.Show("Failed to add parameters");
+                //MessageBox.Show("Failed to add parameters");
             }
         }
         #endregion

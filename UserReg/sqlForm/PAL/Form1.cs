@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 
-namespace PAL
+namespace sqlForm
 {
     /// <summary>
     /// This class defines the functionality of the form

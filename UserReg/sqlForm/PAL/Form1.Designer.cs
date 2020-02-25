@@ -1,4 +1,4 @@
-﻿namespace PAL
+﻿namespace sqlForm
 {
     partial class SQLDataForm
     {
