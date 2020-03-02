@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using BAL;
+using DTO;
+
 namespace PAL
 {
 
@@ -17,9 +19,11 @@ namespace PAL
     public partial class EmployeeForm : Form
     {
         #region"Properties"
-        DataTable result = new DataTable();
+        List<EmployeeDTO> ListDTO = new List<EmployeeDTO>();
 
-        Employee emp = new Employee();
+        EmployeeBAL empbal = new EmployeeBAL();
+
+        EmployeeDTO empdto = new EmployeeDTO();
         #endregion
 
         #region "Functions"
@@ -37,9 +41,9 @@ namespace PAL
         /// </summary>
         private void addButton_Click(object sender, EventArgs e)
         {
-            //std = new Student();
-            emp = ReadDataIntoEmployee();
-            emp.Add();
+            empdto = ReadDataIntoEmployee();
+            int result =empbal.AddBL(empdto);
+            MessageBox.Show("Row inserted with the following id: "+result);
             ClearEntriesInForm();
         }
 
@@ -48,30 +52,29 @@ namespace PAL
         /// </summary>
         void BindGrid()
         {
-            result = emp.Get();
-            dataGridViewForSQL.DataSource = result;
+            ListDTO = empbal.GetBL();
+            dataGridViewForSQL.DataSource = ListDTO;
         }
 
         /// <summary>
         /// This function will read data from winform and store it in the object
         /// </summary>
-        Employee ReadDataIntoEmployee()
+        EmployeeDTO ReadDataIntoEmployee()
         {
-            //std = new Student();
-            emp.firstName = txtBoxFirstName.Text;
-            emp.lastName = txtBoxLastName.Text;
+            empdto.FirstName = txtBoxFirstName.Text;
+            empdto.LastName = txtBoxLastName.Text;
             try
             {
-                emp.EmployeeID = int.Parse(txtBoxID.Text);
-                emp.phoneNumber = long.Parse(txtBoxPhoneNumber.Text);
+                empdto.EmployeeID = int.Parse(txtBoxID.Text);
             }
             catch (Exception) { }
-            emp.emailID = txtBoxEmailID.Text;
-            emp.Gender = txtBoxGender.Text;
-            emp.State = txtBoxState.Text;
-            emp.Country = txtBoxCountry.Text;
+            empdto.PhoneNumber = txtBoxPhoneNumber.Text;
+            empdto.EmailID = txtBoxEmailID.Text;
+            empdto.Gender = txtBoxGender.Text;
+            empdto.State = txtBoxState.Text;
+            empdto.Country = txtBoxCountry.Text;
 
-            return emp;
+            return empdto;
         }
 
         /// <summary>
@@ -87,8 +90,9 @@ namespace PAL
         private void deleteButton_Click(object sender, EventArgs e)
         {
             ReadDataIntoEmployee();
-            emp.Delete();
+            empbal.DeleteBL(empdto);
             ClearEntriesInForm();
+            MessageBox.Show("Row deleted");
         }
 
         /// <summary>
@@ -105,8 +109,9 @@ namespace PAL
         private void updateButton_Click(object sender, EventArgs e)
         {
             ReadDataIntoEmployee();
-            emp.Update();
+            empbal.UpdateBL(empdto);
             ClearEntriesInForm();
+            MessageBox.Show("Row updated");
         }
 
         /// <summary>
@@ -123,12 +128,14 @@ namespace PAL
             txtBoxCountry.Clear();
             txtBoxState.Clear();
         }
-
+        /// <summary>
+        /// This function will be triggered on form's loading
+        /// </summary>
         private void EmployeeForm_Load(object sender, EventArgs e)
         {
 
         }
         #endregion
-
+        
     }
 }

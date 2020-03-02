@@ -15,6 +15,7 @@ namespace DAL
     {
         #region "Properties"
         private string connectionString;
+
         List<SqlParameter> parameters;
         #endregion
 

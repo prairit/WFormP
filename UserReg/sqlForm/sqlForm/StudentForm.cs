@@ -9,18 +9,21 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 using BAL;
+using DTO;
 
 namespace PAL
 {
     /// <summary>
     /// This class defines the functionality of the form
     /// </summary>
-    public partial class SQLDataForm : Form
+    public partial class StudentForm : Form
     {
         #region"Properties"
-        DataTable result = new DataTable();
+        List <StudentDTO> ListDTO = new List<StudentDTO>();
 
-        Student std = new Student();
+        StudentBAL stdbal = new StudentBAL();
+
+        StudentDTO stddto = new StudentDTO();
         #endregion
 
         #region "Functions"
@@ -28,7 +31,7 @@ namespace PAL
         /// <summary>
         /// Constructor for initializing form components
         /// </summary>
-        public SQLDataForm()
+        public StudentForm()
         {
             InitializeComponent();
         }
@@ -38,49 +41,42 @@ namespace PAL
         /// </summary>
         private void addButton_Click(object sender, EventArgs e)
         {
-            //std = new Student();
-            std = ReadDataIntoStudent();
-            std.Add();
+            stddto = ReadDataIntoStudent();
+            int result=stdbal.AddBL(stddto);
+            MessageBox.Show("Row inserted at row number:" + result);
             ClearEntriesInForm();
         }
 
         /// <summary>
-        /// This function will update the datagrid
+        /// This function will bind the datagrid
         /// </summary>
         void BindGrid()
         {
-            result = std.Get();
-            dataGridViewForSQL.DataSource = result;
+            ListDTO = stdbal.GetBL();
+            dataGridViewForSQL.DataSource = ListDTO;
         }
 
         /// <summary>
-        /// This function will read data from winform and store it in the object
+        /// This function will read data from winform and store it in StudentDTO object
         /// </summary>
-        Student ReadDataIntoStudent()
+        StudentDTO ReadDataIntoStudent()
         {
-            //std = new Student();
-            std.firstName = txtBoxFirstName.Text;
-            std.lastName = txtBoxLastName.Text;
+            stddto.FirstName = txtBoxFirstName.Text;
+            stddto.LastName = txtBoxLastName.Text;
             try
             {
-                std.StudentID = int.Parse(txtBoxID.Text);
-                std.phoneNumber = long.Parse(txtBoxPhoneNumber.Text);
+                stddto.StudentID = int.Parse(txtBoxID.Text);
             }
             catch (Exception) { }
-            std.emailID = txtBoxEmailID.Text;
-            std.Gender= txtBoxGender.Text;
-            std.State = txtBoxState.Text;
-            std.Country = txtBoxCountry.Text;
+            stddto.PhoneNumber = txtBoxPhoneNumber.Text;
+            stddto.EmailID = txtBoxEmailID.Text;
+            stddto.Gender= txtBoxGender.Text;
+            stddto.State = txtBoxState.Text;
+            stddto.Country = txtBoxCountry.Text;
 
-            return std;
+            return stddto;
         }
-
-        /// <summary>
-        /// Event triggered on loading of the winform
-        /// </summary>
-        private void Form1_Load(object sender, EventArgs e)
-        {
-        }
+        
         
         /// <summary>
         /// This function  is triggered upon clicking the delete button
@@ -88,8 +84,9 @@ namespace PAL
         private void deleteButton_Click(object sender, EventArgs e)
         {
             ReadDataIntoStudent();
-            std.Delete();
+            stdbal.DeleteBL(stddto);
             ClearEntriesInForm();
+            MessageBox.Show("Row deleted");
         }
 
         /// <summary>
@@ -106,8 +103,9 @@ namespace PAL
         private void updateButton_Click(object sender, EventArgs e)
         {
             ReadDataIntoStudent();
-            std.Update();
+            stdbal.UpdateBL(stddto);
             ClearEntriesInForm();
+            MessageBox.Show("Row updated successfully");
         }
 
         /// <summary>
